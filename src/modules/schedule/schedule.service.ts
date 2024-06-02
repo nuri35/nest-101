@@ -2,7 +2,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Classroom } from 'src/entities/classroom.entity';
-import { Schedule } from 'src/entities/schedule.entity';
 import { Subject } from 'src/entities/subject.entity';
 import { Teacher } from 'src/entities/teacher.entity';
 import { Repository } from 'typeorm';
@@ -12,8 +11,6 @@ import { ScheduleRepository } from 'src/repository/schedule.repo';
 @Injectable()
 export class ScheduleService {
   constructor(
-    @InjectRepository(Schedule)
-    private readonly scheduleRepository: Repository<Schedule>,
     @InjectRepository(Classroom)
     private readonly classroomRepository: Repository<Classroom>,
     @InjectRepository(Teacher)
@@ -40,3 +37,5 @@ export class ScheduleService {
     return await this.scheduleRepo.customCreate(bestScheduled);
   }
 }
+
+// sımdı get endpointini yapalım..

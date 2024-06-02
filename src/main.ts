@@ -1,10 +1,10 @@
-import { NestFactory } from '@nestjs/core';
+import { NestFactory, Reflector } from '@nestjs/core';
 import { AppModule } from './app.module';
 import * as compression from 'compression';
 import helmet from 'helmet';
 // import { GlobalExceptionFilter } from './shared/http-exception.filter';
 import * as morgan from 'morgan';
-// import { TransformInterceptor } from './interceptors/transform.interceptor';
+import { ResponseInterceptor } from './interceptors/response.interceptor';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 async function bootstrap() {
@@ -15,9 +15,10 @@ async function bootstrap() {
 
   app.use(helmet());
   app.use(compression());
+  const reflector = app.get(Reflector);
 
   // app.useGlobalFilters(new GlobalExceptionFilter());
-  // app.useGlobalInterceptors(new TransformInterceptor());
+  app.useGlobalInterceptors(new ResponseInterceptor(reflector));
 
   (app as any).set('etag', false);
   app.use((req, res, next) => {

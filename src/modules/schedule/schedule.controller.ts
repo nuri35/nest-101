@@ -1,17 +1,17 @@
 // lesson-plan.controller.ts
 import { Controller, Post } from '@nestjs/common';
 import { ScheduleService } from './schedule.service';
-import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { Message } from 'src/decorators/response.message';
+import { Serialize } from 'src/decorators/serialize.interceptor';
+import { ScheduleResDto } from './response-dto/schedule.dto';
 
-@ApiTags('nestjs')
 @Controller('schedules')
 export class ScheduleController {
   constructor(private readonly scheduleService: ScheduleService) {}
 
-  @ApiOperation({ summary: 'Create schedules' })
-  @ApiResponse({ status: 201, description: 'Schedules created successfully.' })
-  @ApiResponse({ status: 400, description: 'Bad Request.' })
+  @Message('Schedules created successfully.')
   @Post()
+  @Serialize(ScheduleResDto)
   async create() {
     return await this.scheduleService.createSchedules();
   }
