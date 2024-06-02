@@ -1,3 +1,4 @@
+import { BadRequestException } from '@nestjs/common';
 import { GeneticAlgorithmParameters } from 'src/enums/genetic.algorithm.parameters';
 
 export abstract class SummaryGeneticAlgorithm<T, K> {
@@ -40,7 +41,7 @@ export abstract class SummaryGeneticAlgorithm<T, K> {
 
       return scheduleConverted;
     } else {
-      throw new Error('No suitable  Item found');
+      throw new BadRequestException('No best item found');
     }
   }
 }

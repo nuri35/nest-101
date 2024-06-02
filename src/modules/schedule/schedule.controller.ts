@@ -2,7 +2,7 @@
 import { Controller, Post } from '@nestjs/common';
 import { ScheduleService } from './schedule.service';
 import { Message } from 'src/decorators/response.message';
-import { Serialize } from 'src/decorators/serialize.interceptor';
+import { Serialize } from 'src/interceptors/serialize.interceptor';
 import { ScheduleResDto } from './response-dto/schedule.dto';
 
 @Controller('schedules')

@@ -7,6 +7,7 @@ import { Teacher } from 'src/entities/teacher.entity';
 import { Repository } from 'typeorm';
 import { ScheduleCreator } from 'src/inheritance/bestSchedule';
 import { ScheduleRepository } from 'src/repository/schedule.repo';
+import { TryCatch } from 'src/decorators/try.catch';
 
 @Injectable()
 export class ScheduleService {
@@ -22,6 +23,8 @@ export class ScheduleService {
     @InjectRepository(ScheduleRepository)
     private readonly scheduleRepo: ScheduleRepository,
   ) {}
+
+  @TryCatch()
   async createSchedules() {
     const classrooms = await this.classroomRepository.find();
     const teachers = await this.teacherRepository.find();
@@ -37,5 +40,5 @@ export class ScheduleService {
     return await this.scheduleRepo.customCreate(bestScheduled);
   }
 }
-
+//  entity kısmında hooklar listenerslar vs var onlar yapılabilir bizim burdakı post endponiti için subscrıber vs dusun.. nestjs logger belkı olabilri.
 // sımdı get endpointini yapalım..

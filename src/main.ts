@@ -2,7 +2,7 @@ import { NestFactory, Reflector } from '@nestjs/core';
 import { AppModule } from './app.module';
 import * as compression from 'compression';
 import helmet from 'helmet';
-// import { GlobalExceptionFilter } from './shared/http-exception.filter';
+import { GlobalExceptionFilter } from 'src/shared/http-exception.filter';
 import * as morgan from 'morgan';
 import { ResponseInterceptor } from './interceptors/response.interceptor';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
@@ -17,7 +17,7 @@ async function bootstrap() {
   app.use(compression());
   const reflector = app.get(Reflector);
 
-  // app.useGlobalFilters(new GlobalExceptionFilter());
+  app.useGlobalFilters(new GlobalExceptionFilter());
   app.useGlobalInterceptors(new ResponseInterceptor(reflector));
 
   (app as any).set('etag', false);
