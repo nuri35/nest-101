@@ -6,6 +6,7 @@ import { GlobalExceptionFilter } from 'src/shared/http-exception.filter';
 import * as morgan from 'morgan';
 import { ResponseInterceptor } from './interceptors/response.interceptor';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { apiDescription } from './document/description';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -26,10 +27,9 @@ async function bootstrap() {
     res.removeHeader('date');
     next();
   });
-
   const config = new DocumentBuilder()
     .setTitle('NestJS API')
-    .setDescription('The NestJS API description')
+    .setDescription(apiDescription)
     .setVersion('1.0')
     .addTag('nestjs')
     .build();

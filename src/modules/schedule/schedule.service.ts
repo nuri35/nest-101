@@ -47,6 +47,4 @@ export class ScheduleService {
   }
 }
 
-// NestJS’in Lifecycle’ına uygun kodlama yapılması. araştırılacka
-// swagger
-// dokumantasyon
+// readme.md en son yapılacak..
