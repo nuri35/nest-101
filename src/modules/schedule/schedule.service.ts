@@ -8,6 +8,7 @@ import { Repository } from 'typeorm';
 import { ScheduleCreator } from 'src/inheritance/bestSchedule';
 import { ScheduleRepository } from 'src/repository/schedule.repo';
 import { TryCatch } from 'src/decorators/try.catch';
+import { LookupSchedulesDto } from './dto/lookup.dto';
 
 @Injectable()
 export class ScheduleService {
@@ -39,6 +40,13 @@ export class ScheduleService {
 
     return await this.scheduleRepo.customCreate(bestScheduled);
   }
+
+  @TryCatch()
+  async lookupSchedules(dto: LookupSchedulesDto) {
+    return await this.scheduleRepo.lookup(dto);
+  }
 }
-//  entity kısmında hooklar listenerslar vs var onlar yapılabilir bizim burdakı post endponiti için subscrıber vs dusun.. nestjs logger belkı olabilri.
-// sımdı get endpointini yapalım..
+
+// NestJS’in Lifecycle’ına uygun kodlama yapılması. araştırılacka
+// swagger
+// dokumantasyon
