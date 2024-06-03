@@ -1,6 +1,8 @@
 // description.ts
-
 export const apiDescription = `
+![Genetic Algorithm Workflow](https://your-image-hosting-url.com/path/to/image.png)
+
+
 This API is designed to manage schedules using advanced genetic algorithms. It ensures optimal scheduling through intelligent resource allocation and constraint management, making it suitable for various scenarios such as educational timetables and sports team planning.
 
 ### Summary
@@ -22,7 +24,7 @@ The API provides functionalities to create and fetch schedules using a genetic a
 
 Additionally, in this case, we ensured code reusability by using object composition or inheritance. This allows us to run the genetic algorithm across various scenarios, whether it's a lesson plan schedule or a football team plan, through an abstract GeneticAlgorithm class. This flexibility enhances the versatility and applicability of the algorithm in different contexts
 
-#### Lesson Plan Scheduling
+### Lesson Plan Scheduling
 \`\`\`typescript
 class LessonPlanGeneticAlgorithm extends GeneticAlgorithm {
   // Implementation specific to lesson plan scheduling
@@ -31,7 +33,7 @@ const lessonPlanAlgorithm = new LessonPlanGeneticAlgorithm();
 lessonPlanAlgorithm.run();
 \`\`\`
 
-#### Football Team Scheduling
+### Football Team Scheduling
 \`\`\`typescript
 class FootballTeamGeneticAlgorithm extends GeneticAlgorithm {
   // Implementation specific to football team scheduling
@@ -41,4 +43,24 @@ footballTeamAlgorithm.run();
 \`\`\`
 
 This flexibility enhances the versatility and applicability of the algorithm in different contexts, allowing for efficient scheduling regardless of the domain.
+
+ 
+
+### Data Initialization
+Data for classrooms, levels, subjects, and teachers is populated in the database using migrations. The following commands are used to manage migrations:
+
+- **Create Migration**: \`npm run typeorm:create-migration\`
+  \`\`\`sh
+  npm run typeorm -- migration:create ./migrations/PublicItems
+  \`\`\`
+
+- **Run Migrations**: \`npm run typeorm:run-migrations\`
+  \`\`\`sh
+  npm run typeorm migration:run -- -d ./typeOrm.config.ts
+  \`\`\`
+
+- **Revert Migrations**: \`npm run typeorm:revert-migrations\`
+  \`\`\`sh
+  npm run typeorm migration:revert -- -d ./typeOrm.config.ts
+  \`\`\`
 `;
