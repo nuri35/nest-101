@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner } from 'typeorm';
 
-export class PublicItems1717058290154 implements MigrationInterface {
+export class PublicItems1717058290671 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query(`INSERT INTO level (name) VALUES ('11'), ('12')`);
     //** */

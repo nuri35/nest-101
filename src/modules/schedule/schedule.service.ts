@@ -46,5 +46,5 @@ export class ScheduleService {
     return await this.scheduleRepo.lookup(dto);
   }
 }
-
+// araştırılcaklar sorulucaklar: algoritmanın dogrulu, lifecyla, swagger..
 // readme.md en son yapılacak..

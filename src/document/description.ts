@@ -1,8 +1,6 @@
 // description.ts
 export const apiDescription = `
-![Genetic Algorithm Workflow](https://your-image-hosting-url.com/path/to/image.png)
-
-
+ 
 This API is designed to manage schedules using advanced genetic algorithms. It ensures optimal scheduling through intelligent resource allocation and constraint management, making it suitable for various scenarios such as educational timetables and sports team planning.
 
 ### Summary
