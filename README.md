@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/nuri35/nest-101/blob/master/img/genetic.png" target="blank"><img src="https://github.com/nuri35/nest-101/blob/master/img/genetic.png" width="200" alt="Nest Logo" /></a>
+  <a href="https://github.com/nuri35/nest-101/blob/master/img/genetic.png" target="blank"><img src="https://github.com/nuri35/nest-101/blob/master/img/genetic.png" width="500" height="500" alt="Nest Logo" /></a>
 </p>
 
  
